@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player
@@ -8,12 +9,11 @@ public class Player
 	static boolean stillPlaying = true;
 	static String playerName;
 	static int menuInput;
-	static int numberOfPropertiesOwned;
-	static int numberOfUtilitiesOwned;
-	static int numberOfRailroadsOwned;
 	static int freeParkingMoney;
 	static int timesRolledDoubles = 0;
 	static Scanner userInput = new Scanner(System.in);
+	
+	static ArrayList<BoardSpace> inventory = new ArrayList<BoardSpace>();
 	
 	public static void greetPlayer()
 	{
@@ -46,15 +46,17 @@ public class Player
 	{
 		System.out.println("Your name is: " + playerName);
 		System.out.println("Current balance: $" + playerMoney);
-		System.out.println("Number of properties owned: " + numberOfPropertiesOwned);
-		System.out.println("Number of utilities owned: " + numberOfUtilitiesOwned);
-		System.out.println("Number of railroads owned: " + numberOfRailroadsOwned);
+		System.out.println("Your owned spaces:");
+		for(int i = 0; i < inventory.size(); i++)
+			{
+				System.out.println(inventory.get(i).getName() + inventory.get(i).getType());
+			}
 	}
 	
 	public static void movePlayer()
 	{
 		System.out.println("Press space to roll the dice.");
-		String rollDiceInput = userInput.nextLine();
+		userInput.nextLine();
 		
 		int playerRoll = DiceRoller.rollDice(2,6);
 		
@@ -71,8 +73,6 @@ public class Player
 		
 		System.out.println("You rolled: " + playerRoll + "\nYou landed on " + MonopDriver.board[playerLocation].getName());
 		
-		landOnSquare();
-		
 		if(DiceRoller.doubles == true)
 			{
 				timesRolledDoubles++;
@@ -86,13 +86,10 @@ public class Player
 						System.out.println("You rolled doubles, so you get to roll again!");
 						movePlayer();
 					}
-			}
-		else
-			{
-				
+			
+				landOnSquare();
 			}
 	}
-
 	public static void checkForBankruptcy()
 		{
 			if(playerMoney <= 0)
@@ -123,7 +120,7 @@ public class Player
 								MonopDriver.board[playerLocation].setOwner(playerName);
 								playerMoney -= MonopDriver.board[playerLocation].getCost();
 								checkForBankruptcy();
-								numberOfPropertiesOwned++;
+								inventory.add(MonopDriver.board[playerLocation]);
 							}
 						//need to implement the 'developing' feature (where you can only buy houses if you own all of that color)
 						}
@@ -140,8 +137,7 @@ public class Player
 										}
 									else
 										{
-										//this is broken and I don't know how to fix it at this time
-										//(Properties) MonopDriver.board[playerLocation]).setNumberOfHousesOwned(((Properties) MonopDriver.board[playerLocation]).getNumberOfHousesOwned()+1);
+										((Properties) MonopDriver.board[playerLocation]).setNumberOfHousesOwned(((Properties) MonopDriver.board[playerLocation]).getNumberOfHousesOwned()+1);
 										}
 								}
 						}
@@ -184,7 +180,7 @@ public class Player
 								MonopDriver.board[playerLocation].setOwner(playerName);
 								playerMoney -= MonopDriver.board[playerLocation].getCost();
 								checkForBankruptcy();
-								numberOfUtilitiesOwned++;
+								inventory.add(MonopDriver.board[playerLocation]);
 							}
 						}
 					else if(MonopDriver.board[playerLocation].getOwner().equals(playerName))
@@ -209,7 +205,7 @@ public class Player
 								MonopDriver.board[playerLocation].setOwner(playerName);
 								playerMoney -= MonopDriver.board[playerLocation].getCost();
 								checkForBankruptcy();
-								numberOfRailroadsOwned++;
+								inventory.add(MonopDriver.board[playerLocation]);
 							}
 						}
 					else if(MonopDriver.board[playerLocation].getOwner().equals(playerName))

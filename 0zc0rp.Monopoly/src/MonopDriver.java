@@ -12,7 +12,6 @@ public class MonopDriver
 			{
 				Scanner file = new Scanner(new File( "AmericanMonopoly.txt" ));
 				int numberOfLines = file.nextInt();
-			      file.nextLine();
 			      for( int i = 0; i < numberOfLines; i++ )
 			          {
 			        	  /*the txt file will be structured as follows:
