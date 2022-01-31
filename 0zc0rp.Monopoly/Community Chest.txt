@@ -1,5 +1,5 @@
 16
-Move GO
+Move 0
 Money 200
 Money -50
 Money 50

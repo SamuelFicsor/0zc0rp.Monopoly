@@ -35,11 +35,11 @@ public class MonopDriver
 			{
 				System.out.println("Player 1, what is your name?");
 				inputString = userInputString.nextLine();
-				player1 = new Player(0, false, 1500, true, inputString, 0, new ArrayList<BoardSpace>());
+				player1 = new Player(0, false, 1500, true, inputString, 0, new ArrayList<BoardSpace>(), false, 0, 0);
 				System.out.println("Welcome, " + player1.getPlayerName() + "!");
 				System.out.println("Player 2, what is your name?");
 				inputString = userInputString.nextLine();
-				player2 = new Player(0, false, 1500, true, inputString, 0, new ArrayList<BoardSpace>());
+				player2 = new Player(0, false, 1500, true, inputString, 0, new ArrayList<BoardSpace>(), false, 0, 0);
 				System.out.println("Welcome, " + player2.getPlayerName() + "!");
 			}
 

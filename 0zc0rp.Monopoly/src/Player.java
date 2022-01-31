@@ -10,10 +10,13 @@ public class Player
 	 String playerName;
 	 int menuInput;
 	 int timesRolledDoubles = 0;
+	 boolean freeParking = false;
+	 int railRoads;
+	 int utilities;
 	 Scanner userInput = new Scanner(System.in);
 	 ArrayList<BoardSpace> inventory = new ArrayList<BoardSpace>();
 	
-	public Player(int pL, boolean iJ, int pM, boolean sP, String pN, int tD, ArrayList<BoardSpace> i)
+	public Player(int pL, boolean iJ, int pM, boolean sP, String pN, int tD, ArrayList<BoardSpace> i, boolean f, int r, int u)
 	{
 		playerLocation = pL;
 		inJail = iJ;
@@ -22,7 +25,40 @@ public class Player
 		playerName = pN;
 		timesRolledDoubles = tD;
 		inventory = i;
+		freeParking = f;
+		railRoads = r;
+		utilities = u;
 	}
+
+	public int getRailRoads()
+		{
+			return railRoads;
+		}
+
+	public void setRailRoads(int railRoads)
+		{
+			this.railRoads = railRoads;
+		}
+
+	public int getUtilities()
+		{
+			return utilities;
+		}
+
+	public void setUtilities(int utilities)
+		{
+			this.utilities = utilities;
+		}
+
+	public boolean isFreeParking()
+		{
+			return freeParking;
+		}
+
+	public void setFreeParking(boolean freeParking)
+		{
+			this.freeParking = freeParking;
+		}
 
 	public int getPlayerLocation()
 		{
