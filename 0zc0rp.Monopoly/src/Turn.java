@@ -37,6 +37,10 @@ public class Turn
 					{
 						goToFreeParking(p);
 					}
+				else if(menuInput == 4)
+					{
+						testJail(p);
+					}
 				else
 					{
 						System.out.println("That's not an option.\nPlease try again.");
@@ -333,4 +337,12 @@ public class Turn
 				p.setFreeParking(true);
 				movePlayer(p);
 			}
+		
+		public static void testJail(Player p)
+		{
+			p.setPlayerLocation(10);
+			System.out.println("You're in jail!");
+			p.setInJail(true);
+			turnMenu(p);
+		}
 	}

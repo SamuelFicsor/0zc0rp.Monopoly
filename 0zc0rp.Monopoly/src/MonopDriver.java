@@ -19,7 +19,7 @@ public class MonopDriver
 		static Player player1;
 		static Player player2;
 
-		public static void main(String[] args) throws FileNotFoundException, IOException
+		public static void main(String[] args) throws IOException, FileNotFoundException
 			{
 				selectVersion();
 				greetPlayer();
@@ -45,13 +45,12 @@ public class MonopDriver
 
 		public static void selectVersion() throws FileNotFoundException, IOException
 			{
-				System.out.println(
-						"Which version of Monopoly would you like to play?\n1) American Monopoly\n2) Aviation Monopoly");
+				System.out.println("Which version of Monopoly would you like to play?\n1)American Monopoly (default)\n2) Aviation Monopoly");
 				int input = userInput.nextInt();
 
 				if (input == 1)
 					{
-						file = new Scanner(new File("AmericanMonopoly.txt"));
+						file = new Scanner(new File("nooo.txt"));
 					} 
 				else if (input == 2)
 					{
@@ -119,8 +118,7 @@ public class MonopDriver
 //					  int r2 = DiceRoller.rollDice(2,6)*10;
 
 								board[i] = new Utilities("Utility", un, uo, uc, ul);
-							} 
-						else if (type.equals("Other"))
+							} else if (type.equals("Other"))
 							{
 								String name = b.next();
 								String owner = b.next();
