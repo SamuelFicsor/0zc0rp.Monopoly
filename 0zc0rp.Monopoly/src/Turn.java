@@ -260,7 +260,6 @@ public class Turn
 							} 
 						else if (MonopDriver.board[p.getPlayerLocation()].getName().equals("Free_Parking"))
 							{
-								System.out.println("You landed on free parking!");
 								p.setFreeParking(true);
 							} 
 						else if (MonopDriver.board[p.getPlayerLocation()].getName().equals("Income_Tax")
