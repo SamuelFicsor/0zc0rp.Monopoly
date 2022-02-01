@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 //run class
 public class MonopDriver
@@ -18,7 +19,7 @@ public class MonopDriver
 		static Player player1;
 		static Player player2;
 
-		public static void main(String[] args) throws FileNotFoundException
+		public static void main(String[] args) throws FileNotFoundException, IOException
 			{
 				selectVersion();
 				greetPlayer();
@@ -42,7 +43,7 @@ public class MonopDriver
 				System.out.println("Welcome, " + player2.getPlayerName() + "!");
 			}
 
-		public static void selectVersion() throws FileNotFoundException
+		public static void selectVersion() throws FileNotFoundException, IOException
 			{
 				System.out.println(
 						"Which version of Monopoly would you like to play?\n1) American Monopoly\n2) Aviation Monopoly");
@@ -54,7 +55,7 @@ public class MonopDriver
 					} 
 				else if (input == 2)
 					{
-						file = new Scanner(new File("AviationMonopoly.txt"));
+						file = new Scanner(new File("lol.txt"));
 					} 
 				else
 					{

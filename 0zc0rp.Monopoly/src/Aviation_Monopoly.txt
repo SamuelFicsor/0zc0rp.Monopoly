@@ -20,7 +20,7 @@ Other Community_Chest 0 none 17
 Property Boeing_B777 180 none 18 false 14 100 70 200 550 950
 Property Gulfstream 200 none 19 false 16 100 80 220 600 1000
 Other Free_Parking 0 none 20
-Property B17_Flying_Fortress 220 none 21 false 18 150 90 250  700 1050
+Property B17_Flying_Fortress 220 none 21 false 18 150 90 250 700 1050
 Other Chance 0 none 22
 Property B24_Liberator 220 none 23 false 18 150 90 250 700 1050
 Property B29_SuperFortress 240 none 24 false 20 150 100 300 750 1100
